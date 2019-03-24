@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ODN.Cargo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cargos</h2>
+
+@if (TempData["Error"] != null)
+{
+    <p>
+        @TempData["Error"].ToString()
+    </p>
+}
+<p>
+    @Html.ActionLink("Create New", "Create",FormMethod.Post)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoCargo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCargo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoCargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCargo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

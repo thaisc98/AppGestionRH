@@ -17,7 +17,7 @@ namespace LAD
         public IEnumerable<SalidaEmpleado> GetAll()
         {
             return db.SalidaEmpleado.ToList();
-        }r
+        }
 
         public SalidaEmpleado GetById(int id)
         {
