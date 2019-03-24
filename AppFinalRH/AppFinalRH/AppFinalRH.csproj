@@ -135,6 +135,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CargoController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepartamentoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmpleadoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VacacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,6 +163,12 @@
     <Content Include="Areas\Admin\Views\Departamento\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Departamento\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Departamento\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Empleado\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Empleado\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Empleado\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Vacacion\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Vacacion\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Vacacion\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

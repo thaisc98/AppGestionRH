@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ODN.Vacacion>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br/>
+<h4 class="text-center">Index</h4>
+<br/>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Desde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hasta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empleado.CodigoEmp)
+        </th>
+        <th>
+            @Html.ActionLink("Agregar", "Create", new{area ="Admin"}, new{@class = "btn btn-primary"})
+        </th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentarios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empleado.CodigoEmp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new{@class ="btn btn-info"}) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new{@class ="btn btn-danger"})
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<script>
+    function confirmar() {
+        return confirm('¿Seguro que quieres cancelar esta vacación?');
+    }
+</script>
