@@ -31,7 +31,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.DepartamentoId = new SelectList(departamentoLDN.GetAll().ToList(), "Id", "NombreDep");
-            ViewBag.CargoId = new SelectList(departamentoLDN.GetAll().ToList(), "Id", "NombreCargo");
+            ViewBag.CargoId = new SelectList(cargoLDN.GetAll().ToList(), "Id", "NombreCargo");
 
             return View();
         }
@@ -79,7 +79,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                TempData["Msg"] = "Error: al eliminar el estudiante. Inténtelo de nuevo";
+                TempData["Msg"] = "Error: al eliminar el empleado. Inténtelo de nuevo";
                 return RedirectToAction("Index", "Empleado");
             }
         }
