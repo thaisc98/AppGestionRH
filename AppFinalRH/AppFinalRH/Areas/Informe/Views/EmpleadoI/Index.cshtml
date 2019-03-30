@@ -48,21 +48,21 @@
 
 
 <ul class="nav nav-pills">
-    @if (ViewBag.Status == "A")
+    @if (ViewBag.Estatus == "A")
     {
-        <li class="active">@Html.ActionLink("Activos", "Index", new { Status = "A" })</li>
+        <li class="active">@Html.ActionLink("Activos", "Index", new { Estatus = "A" })</li>
     }
     else
     {
-        <li>@Html.ActionLink("Activos", "Index", new { Status = "A" })</li>
+        <li>@Html.ActionLink("Activos", "Index", new { Estatus = "A" })</li>
     }
-    @if (ViewBag.Status == "I")
+    @if (ViewBag.Estatus == "I")
     {
-        <li class="active">@Html.ActionLink("Inactivos", "Index", new { Status = "I" })</li>
+        <li class="active">@Html.ActionLink("Inactivos", "Index", new { Estatus = "I" })</li>
     }
     else
     {
-        <li>@Html.ActionLink("Inactivos", "Index", new { Status = "I" })</li>
+        <li>@Html.ActionLink("Inactivos", "Index", new { Estatus = "I" })</li>
     }
 </ul>
 
