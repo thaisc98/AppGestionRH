@@ -180,6 +180,7 @@
     <Content Include="Areas\Admin\Views\Licencia\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Licencia\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SalidaEmpleado\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SalidaEmpleado\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

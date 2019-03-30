@@ -3,14 +3,14 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
+<br/>
+<h2>Licencias</h2>
+<hr/>
 <p>
     @Html.ActionLink("Create New", "Create",FormMethod.Post)
 </p>
-<table class="table">
-    <tr>
+<table class="table table-bordered table-hover table-responsive table-striped">
+    <tr class="text-primary active">
         <th>
             @Html.DisplayNameFor(model => model.Desde)
         </th>
@@ -48,7 +48,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new{@class = "btn btn-danger"})
         </td>
     </tr>
 }

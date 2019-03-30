@@ -3,14 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Departamentos</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
+<br/>
+<h4 class="text-center">Departamentos</h4>
+<hr/>
+<table class="table table-bordered table-responsive table-hover table-striped">
+    <tr class="text-primary active">
         <th>
             @Html.DisplayNameFor(model => model.CodigoDep)
         </th>
@@ -20,7 +17,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Empleado1.CodigoEmp)
         </th>
-        <th></th>
+        <th>
+            @Html.ActionLink("Añadir", "Create",  new{area ="Admin"}, new{@class ="btn btn-primary"})
+        </th>
     </tr>
 
 @foreach (var item in Model) {

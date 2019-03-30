@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "Create";
 }
+<br/>
+<h2 class="text-center">Agregar salida de empleado</h2>
+<hr/>
 
-<h2>Create</h2>
 
-
-@using (Html.BeginForm("Create","SalidaEmpleado",FormMethod.Post)) 
+@using (Html.BeginForm("Create","SalidaEmpleado",FormMethod.Post, new{area= "Admin"})) 
 {
     @Html.AntiForgeryToken()
     
@@ -46,18 +47,25 @@
                 @Html.ValidationMessageFor(model => model.FechaSalida, "", new { @class = "text-danger" })
             </div>
         </div>
+        
+        <div class="form-inline">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Agregar" class="btn btn-primary" />
+                </div>
+            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ActionLink("Cancelar", "Index", "SalidaEmpleado", new {@class = "btn btn-danger"})
+                </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

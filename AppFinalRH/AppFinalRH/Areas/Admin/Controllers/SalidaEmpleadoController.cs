@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using LDN;
+﻿using LDN;
 using ODN;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Admin.Controllers
 {
@@ -33,6 +30,14 @@ namespace AppFinalRH.Areas.Admin.Controllers
             ViewBag.EmpleadoId = empleldn.GetAll().Where(y => y.Estatus == "A").Select(x => new SelectListItem()
             {
                 Text = x.Nombre + " " + x.Apellido + " (" + x.CodigoEmp + ") ",
+                Value = x.Id.ToString()
+            });
+
+
+
+            ViewBag.Id_Empleado = empleldn.GetAll().Select(x => new SelectListItem()
+            {
+                Text = x.Nombre + " " + x.Apellido,
                 Value = x.Id.ToString()
             });
 
