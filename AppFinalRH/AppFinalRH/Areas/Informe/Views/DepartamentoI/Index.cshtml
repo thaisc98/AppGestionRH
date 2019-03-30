@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ODN.Departamento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Departamentos</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoDep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreDep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empleado1.CodigoEmp)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoDep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreDep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empleado1.CodigoEmp)
+        </td>
+    </tr>
+}
+
+</table>

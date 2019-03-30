@@ -140,6 +140,11 @@
     <Compile Include="Areas\Admin\Controllers\PermisoController.cs" />
     <Compile Include="Areas\Admin\Controllers\SalidaEmpleadoController.cs" />
     <Compile Include="Areas\Admin\Controllers\VacacionController.cs" />
+    <Compile Include="Areas\Informe\Controllers\CargoIController.cs" />
+    <Compile Include="Areas\Informe\Controllers\DepartamentoIController.cs" />
+    <Compile Include="Areas\Informe\Controllers\EmpleadoIController.cs" />
+    <Compile Include="Areas\Informe\Controllers\LicenciaIController.cs" />
+    <Compile Include="Areas\Informe\InformeAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -181,6 +186,13 @@
     <Content Include="Areas\Admin\Views\Licencia\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SalidaEmpleado\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SalidaEmpleado\Edit.cshtml" />
+    <Content Include="Areas\Informe\Views\web.config" />
+    <Content Include="Areas\Informe\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Informe\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Informe\Views\EmpleadoI\Index.cshtml" />
+    <Content Include="Areas\Informe\Views\CargoI\Index.cshtml" />
+    <Content Include="Areas\Informe\Views\DepartamentoI\Index.cshtml" />
+    <Content Include="Areas\Informe\Views\LicenciaI\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -210,6 +222,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Informe\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
