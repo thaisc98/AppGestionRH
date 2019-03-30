@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ODN.Empleado>
+﻿@using System.IdentityModel.Protocols.WSTrust
+@model IEnumerable<ODN.Empleado>
 
 @{
     ViewBag.Title = "Index";
@@ -6,19 +7,67 @@
 
 <h2>Lista Empleados</h2>
 
+
+<script>
+    $(document).ready(function () {
+
+        $(document).ajaxStart(function() {
+            $("#cargando").show();
+        });
+
+        $(document).ajaxStop(function() {
+            $("#cargando").hide();
+        });
+</script>
+
 @using (Html.BeginForm("Index", "EmpleadoI", FormMethod.Get))
 {
 
     <b>Buscar por:</b>
-    @Html.RadioButton("buscarPo", "Nombre", true) <text>Nombre</text>
-    @Html.RadioButton("buscarPo", "Departamento")<text>Departamento</text>
+    @Html.RadioButton("buscarPor", "Nombre", true) <text>Nombre</text>
+    @Html.RadioButton("buscarPor", "Departamento")<text>Departamento</text>
     <p>
         <b>Buscar por:</b> @Html.TextBox("buscar") <input type="submit" value="buscar" />
     </p>
 }
 
+<div id="cargando" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Cargando...</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress progress-striped active">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<table class="table">
+
+<ul class="nav nav-pills">
+    @if (ViewBag.Status == "A")
+    {
+        <li class="active">@Html.ActionLink("Activos", "Index", new { Status = "A" })</li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Activos", "Index", new { Status = "A" })</li>
+    }
+    @if (ViewBag.Status == "I")
+    {
+        <li class="active">@Html.ActionLink("Inactivos", "Index", new { Status = "I" })</li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Inactivos", "Index", new { Status = "I" })</li>
+    }
+</ul>
+
+
+<table class="table table-bordered table-responsive table-hover table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.CodigoEmp)

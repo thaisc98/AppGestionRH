@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LDN;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using LDN;
 
 namespace AppFinalRH.Areas.Informe.Controllers
 {
@@ -16,18 +13,28 @@ namespace AppFinalRH.Areas.Informe.Controllers
             empldn = new EmpleadoLDN();
         }
         // GET: Informe/EmpleadoI
-        public ActionResult Index(string buscarPo, string buscar)
+        public ActionResult Index(string estado, string buscarPor, string buscar)
         {
-            if (buscarPo == "Departamento")
+
+            if (buscarPor == "Departamento")
             {
                 return View(empldn.GetActives().Where(x => x.Departamento.CodigoDep.StartsWith(buscar) || buscar == null));
             }
-            else if (buscarPo == "Nombre")
+            else if (buscarPor == "Nombre")
             {
                 return View(empldn.GetActives().Where(x => x.Nombre.StartsWith(buscar) || buscar == null));
             }
-            
-            return View(empldn.GetActives());
+
+            ViewBag.Status = (estado == null ? "A" : estado);
+            if (estado == null)
+            {
+                return View(empldn.GetActives());
+            }
+            else
+            {
+                return View(empldn.GetInactives());
+            }
+
         }
     }
 }
