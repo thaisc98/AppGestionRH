@@ -12,15 +12,18 @@ namespace ODN
     using System;
     using System.Collections.Generic;
     
-    public partial class Nomina
+    public partial class Mes
     {
-        public int Id { get; set; }
-        public Nullable<int> Anio { get; set; }
-        public Nullable<int> MesId { get; set; }
-        public string MesT { get; set; }
-        public decimal MontoT { get; set; }
-        public string Estatus { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Mes()
+        {
+            this.Nomina = new HashSet<Nomina>();
+        }
     
-        public virtual Mes Mes { get; set; }
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Nomina> Nomina { get; set; }
     }
 }

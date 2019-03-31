@@ -40,9 +40,19 @@ namespace AppFinalRH.Areas.Seguridad.Controllers
             }
             catch
             {
+                TempData["MensajeE"] = "Ha ocurrido un error al iniciar sesión";
+                return RedirectToAction("Index", "ISesion");
 
             }
             return View();
+        }
+
+
+      
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Principal", new { area = "Lobby" });
         }
 
 

@@ -49,14 +49,23 @@
           <Property Name="Motivo" Type="varchar(max)" Nullable="false" />
           <Property Name="Comentarios" Type="varchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Mes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Nomina">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Anio" Type="int" />
-          <Property Name="Mes" Type="int" Nullable="false" />
+          <Property Name="MesId" Type="int" />
+          <Property Name="MesT" Type="varchar" MaxLength="50" />
           <Property Name="MontoT" Type="decimal" Precision="27" Scale="2" Nullable="false" />
+          <Property Name="Estatus" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="Permiso">
           <Key>
@@ -145,6 +154,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Nomina_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="0..1" />
+          <End Role="Nomina" Type="Self.Nomina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nomina">
+              <PropertyRef Name="MesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Permiso_Emp">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="Permiso" Type="Self.Permiso" Multiplicity="*" />
@@ -186,6 +207,7 @@
           <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Licencia" EntityType="Self.Licencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mes" EntityType="Self.Mes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nomina" EntityType="Self.Nomina" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permiso" EntityType="Self.Permiso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalidaEmpleado" EntityType="Self.SalidaEmpleado" Schema="dbo" store:Type="Tables" />
@@ -206,6 +228,10 @@
           <AssociationSet Name="FK_Licencia_Emp" Association="Self.FK_Licencia_Emp">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Licencia" EntitySet="Licencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nomina_Mes" Association="Self.FK_Nomina_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="Nomina" EntitySet="Nomina" />
           </AssociationSet>
           <AssociationSet Name="FK_Permiso_Emp" Association="Self.FK_Permiso_Emp">
             <End Role="Empleado" EntitySet="Empleado" />
@@ -280,14 +306,25 @@
           <Property Name="Comentarios" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Empleado" Relationship="Self.FK_Licencia_Emp" FromRole="Licencia" ToRole="Empleado" />
         </EntityType>
+        <EntityType Name="Mes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Nomina" Relationship="Self.FK_Nomina_Mes" FromRole="Mes" ToRole="Nomina" />
+        </EntityType>
         <EntityType Name="Nomina">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Anio" Type="Int32" />
-          <Property Name="Mes" Type="Int32" Nullable="false" />
+          <Property Name="MesId" Type="Int32" />
+          <Property Name="MesT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MontoT" Type="Decimal" Precision="27" Scale="2" Nullable="false" />
+          <Property Name="Estatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Mes" Relationship="Self.FK_Nomina_Mes" FromRole="Nomina" ToRole="Mes" />
         </EntityType>
         <EntityType Name="Permiso">
           <Key>
@@ -415,11 +452,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Nomina_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="0..1" />
+          <End Role="Nomina" Type="Self.Nomina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nomina">
+              <PropertyRef Name="MesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="GestionRHDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cargo" EntityType="Self.Cargo" />
           <EntitySet Name="Departamento" EntityType="Self.Departamento" />
           <EntitySet Name="Empleado" EntityType="Self.Empleado" />
           <EntitySet Name="Licencia" EntityType="Self.Licencia" />
+          <EntitySet Name="Mes" EntityType="Self.Mes" />
           <EntitySet Name="Nomina" EntityType="Self.Nomina" />
           <EntitySet Name="Permiso" EntityType="Self.Permiso" />
           <EntitySet Name="SalidaEmpleado" EntityType="Self.SalidaEmpleado" />
@@ -452,6 +502,10 @@
           <AssociationSet Name="FK_Vacacion_Emp" Association="Self.FK_Vacacion_Emp">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Vacacion" EntitySet="Vacacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nomina_Mes" Association="Self.FK_Nomina_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="Nomina" EntitySet="Nomina" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -508,13 +562,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Mes">
+            <EntityTypeMapping TypeName="GestionRHDbModel.Mes">
+              <MappingFragment StoreEntitySet="Mes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Nomina">
             <EntityTypeMapping TypeName="GestionRHDbModel.Nomina">
               <MappingFragment StoreEntitySet="Nomina">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Anio" ColumnName="Anio" />
-                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="MesId" ColumnName="MesId" />
+                <ScalarProperty Name="MesT" ColumnName="MesT" />
                 <ScalarProperty Name="MontoT" ColumnName="MontoT" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

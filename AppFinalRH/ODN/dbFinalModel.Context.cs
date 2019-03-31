@@ -29,6 +29,7 @@ namespace ODN
         public virtual DbSet<Departamento> Departamento { get; set; }
         public virtual DbSet<Empleado> Empleado { get; set; }
         public virtual DbSet<Licencia> Licencia { get; set; }
+        public virtual DbSet<Mes> Mes { get; set; }
         public virtual DbSet<Nomina> Nomina { get; set; }
         public virtual DbSet<Permiso> Permiso { get; set; }
         public virtual DbSet<SalidaEmpleado> SalidaEmpleado { get; set; }

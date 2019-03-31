@@ -4,15 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2a636cc3aecf416d985f99d9011bae4a" Name="Diagram1">
+      <Diagram DiagramId="294c0b76681e48de9305bee38a5b56b6" Name="Diagram1">
         <EntityTypeShape EntityType="GestionRHDbModel.Cargo" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionRHDbModel.Departamento" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionRHDbModel.Empleado" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionRHDbModel.Licencia" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestionRHDbModel.Nomina" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionRHDbModel.Mes" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionRHDbModel.Nomina" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionRHDbModel.Permiso" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionRHDbModel.SalidaEmpleado" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestionRHDbModel.Usuario" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionRHDbModel.Usuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionRHDbModel.Vacacion" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
         <AssociationConnector Association="GestionRHDbModel.FK_Empleado_Cargo" ManuallyRouted="false" />
         <AssociationConnector Association="GestionRHDbModel.FK_Empleado_Dep" ManuallyRouted="false" />
@@ -21,6 +22,7 @@
         <AssociationConnector Association="GestionRHDbModel.FK_Permiso_Emp" ManuallyRouted="false" />
         <AssociationConnector Association="GestionRHDbModel.FK_Salida_Emp" ManuallyRouted="false" />
         <AssociationConnector Association="GestionRHDbModel.FK_Vacacion_Emp" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionRHDbModel.FK_Nomina_Mes" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

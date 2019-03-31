@@ -24,8 +24,6 @@ namespace AppFinalRH.Areas.Seguridad.Controllers
         }
 
 
-        //Falta colocar bien el RedirecToAction dentro del if//
-
         [HttpPost]
         public ActionResult Index(Usuario user)
         {
@@ -34,14 +32,14 @@ namespace AppFinalRH.Areas.Seguridad.Controllers
                 if (ModelState.IsValid)
                 {
                     usuarioldn.Insert(user);
-                    return RedirectToAction("Index", "Registro");
+                    return RedirectToAction("Index", "Principal", new{area="Lobby"});
                 }
 
             }
             catch
             {
                 TempData["Error"] = "Error al registrarse, intentelo mas tarde";
-                return RedirectToAction("Index", "Registro");
+                return RedirectToAction("Index", "Registro", new{area="Seguridad"});
             }
       
             return View();

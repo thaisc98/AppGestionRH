@@ -78,6 +78,9 @@
     <Compile Include="Licencia.cs">
       <DependentUpon>dbFinalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mes.cs">
+      <DependentUpon>dbFinalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Nomina.cs">
       <DependentUpon>dbFinalModel.tt</DependentUpon>
     </Compile>
@@ -96,32 +99,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="dbFinalModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>dbFinalModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="dbFinalModel.edmx.diagram">
       <DependentUpon>dbFinalModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="dbFinalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>dbFinalModel.Context.cs</LastGenOutput>
       <DependentUpon>dbFinalModel.edmx</DependentUpon>
+      <LastGenOutput>dbFinalModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="dbFinalModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbFinalModel.edmx</DependentUpon>
       <LastGenOutput>dbFinalModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
