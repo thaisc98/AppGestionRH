@@ -36,8 +36,6 @@ namespace AppFinalRH.Areas.Informe.Controllers
             }
 
 
-           
-           
             return View(empldn.GetActives());
 
         }

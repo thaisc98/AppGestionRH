@@ -148,6 +148,11 @@
     <Compile Include="Areas\Informe\Controllers\SalidaEmpleadoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\VacacionIController.cs" />
     <Compile Include="Areas\Informe\InformeAreaRegistration.cs" />
+    <Compile Include="Areas\Lobby\Controllers\PrincipalController.cs" />
+    <Compile Include="Areas\Lobby\LobbyAreaRegistration.cs" />
+    <Compile Include="Areas\Seguridad\Controllers\ISesionController.cs" />
+    <Compile Include="Areas\Seguridad\Controllers\RegistroController.cs" />
+    <Compile Include="Areas\Seguridad\SeguridadAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -199,6 +204,15 @@
     <Content Include="Areas\Informe\Views\PermisoI\Index.cshtml" />
     <Content Include="Areas\Informe\Views\VacacionI\Index.cshtml" />
     <Content Include="Areas\Informe\Views\SalidaEmpleadoI\Index.cshtml" />
+    <Content Include="Areas\Seguridad\Views\web.config" />
+    <Content Include="Areas\Seguridad\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Seguridad\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Seguridad\Views\Registro\Index.cshtml" />
+    <Content Include="Areas\Seguridad\Views\ISesion\Index.cshtml" />
+    <Content Include="Areas\Lobby\Views\web.config" />
+    <Content Include="Areas\Lobby\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Lobby\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Lobby\Views\Principal\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -229,6 +243,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Informe\Models\" />
+    <Folder Include="Areas\Lobby\Models\" />
+    <Folder Include="Areas\Seguridad\Models\" />
+    <Folder Include="Areas\Seguridad\Views\Usuario\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
