@@ -144,6 +144,9 @@
     <Compile Include="Areas\Informe\Controllers\DepartamentoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\EmpleadoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\LicenciaIController.cs" />
+    <Compile Include="Areas\Informe\Controllers\PermisoIController.cs" />
+    <Compile Include="Areas\Informe\Controllers\SalidaEmpleadoIController.cs" />
+    <Compile Include="Areas\Informe\Controllers\VacacionIController.cs" />
     <Compile Include="Areas\Informe\InformeAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -193,6 +196,9 @@
     <Content Include="Areas\Informe\Views\CargoI\Index.cshtml" />
     <Content Include="Areas\Informe\Views\DepartamentoI\Index.cshtml" />
     <Content Include="Areas\Informe\Views\LicenciaI\Index.cshtml" />
+    <Content Include="Areas\Informe\Views\PermisoI\Index.cshtml" />
+    <Content Include="Areas\Informe\Views\VacacionI\Index.cshtml" />
+    <Content Include="Areas\Informe\Views\SalidaEmpleadoI\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
