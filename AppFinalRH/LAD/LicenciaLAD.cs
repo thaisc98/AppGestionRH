@@ -7,7 +7,6 @@ namespace LAD
 {
     public class LicenciaLAD
     {
-
         private GestionRHDbEntities db;
 
         public LicenciaLAD()

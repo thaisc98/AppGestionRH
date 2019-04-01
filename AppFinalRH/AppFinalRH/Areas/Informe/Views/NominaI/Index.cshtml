@@ -1,0 +1,121 @@
+﻿@model IEnumerable<ODN.Nomina>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<script>
+    $(document).ready(function () {
+
+        $(document).ajaxStart(function () {
+            $("#cargando").show();
+        });
+
+        $(document).ajaxStop(function () {
+            $("#cargando").hide();
+        });
+</script>
+
+
+
+@using (Html.BeginForm("Index", "NominaI", FormMethod.Get))
+{
+
+    <b>Buscar por:</b>
+    @Html.RadioButton("buscarPor", "Mes", true) <text>Mes</text>
+    @Html.RadioButton("buscarPor", "Anio")<text>Año</text>
+    <p>
+        <b>Buscar por:</b> @Html.TextBox("buscar") <input type="submit" value="buscar" />
+    </p>
+}
+
+
+<div id="cargando" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Cargando...</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress progress-striped active">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<ul class="nav nav-pills">
+    @if (ViewBag.Estado == "A")
+    {
+        <li class="active">@Html.ActionLink("Activos", "Index", new { Estado = "A" })</li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Activos", "Index", new { Estado = "A" })</li>
+    }
+    @if (ViewBag.Estado == "R")
+    {
+        <li class="active">@Html.ActionLink("Denegadas", "Index", new { Estado = "R" })</li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Denegadas", "Index", new { Estado = "R" })</li>
+    }
+    @if (ViewBag.Estado == "p")
+    {
+        <li class="active">@Html.ActionLink("Pendientes", "Index", new { Estado = "P" })</li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Pendientes", "Index", new { Estado = "P" })</li>
+    }
+
+</ul>
+
+<table class="table table-bordered table-hover table-responsive table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Anio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MesT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MontoT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mes.Descripcion)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MesT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontoT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mes.Descripcion)
+            </td>
+        </tr>
+    }
+
+</table>

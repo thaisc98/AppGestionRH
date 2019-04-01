@@ -47,6 +47,7 @@
     <Compile Include="DepartamentoLDN.cs" />
     <Compile Include="EmpleadoLDN.cs" />
     <Compile Include="LicenciaLDN.cs" />
+    <Compile Include="MesLDN.cs" />
     <Compile Include="NominaLDN.cs" />
     <Compile Include="PermisoLDN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

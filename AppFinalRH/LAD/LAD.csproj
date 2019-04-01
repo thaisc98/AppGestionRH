@@ -52,6 +52,7 @@
     <Compile Include="DepartamentoLAD.cs" />
     <Compile Include="EmpleadoLAD.cs" />
     <Compile Include="LicenciaLAD.cs" />
+    <Compile Include="MesLAD.cs" />
     <Compile Include="NominaLAD.cs" />
     <Compile Include="PermisoLAD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

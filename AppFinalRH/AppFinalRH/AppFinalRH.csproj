@@ -137,6 +137,7 @@
     <Compile Include="Areas\Admin\Controllers\DepartamentoController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmpleadoController.cs" />
     <Compile Include="Areas\Admin\Controllers\LicenciaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NominaController.cs" />
     <Compile Include="Areas\Admin\Controllers\PermisoController.cs" />
     <Compile Include="Areas\Admin\Controllers\SalidaEmpleadoController.cs" />
     <Compile Include="Areas\Admin\Controllers\VacacionController.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Areas\Informe\Controllers\DepartamentoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\EmpleadoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\LicenciaIController.cs" />
+    <Compile Include="Areas\Informe\Controllers\NominaIController.cs" />
     <Compile Include="Areas\Informe\Controllers\PermisoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\SalidaEmpleadoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\VacacionIController.cs" />
@@ -213,6 +215,10 @@
     <Content Include="Areas\Lobby\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Lobby\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Lobby\Views\Principal\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Nomina\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Nomina\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Nomina\Edit.cshtml" />
+    <Content Include="Areas\Informe\Views\NominaI\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
