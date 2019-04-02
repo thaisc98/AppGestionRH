@@ -22,9 +22,6 @@
             @Html.DisplayNameFor(model => model.Estatus)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Mes.Descripcion)
-        </th>
-        <th>
             @Html.ActionLink("Agregar", "Create", "Nomina", new{@class="btn btn-primary"})
         </th>
     </tr>
@@ -35,16 +32,14 @@
             @Html.DisplayFor(modelItem => item.Anio)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MesT)
+            @Html.DisplayFor(modelItem => item.Mes.Descripcion)
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MontoT)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Estatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mes.Descripcion)
         </td>
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
