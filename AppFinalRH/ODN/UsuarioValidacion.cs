@@ -11,7 +11,6 @@ namespace ODN
     {
         [EmailAddress]
         public string Email { get; set; }
-
         [Required]
         public string Contra { get; set; }
         public string Role { get; set; }
