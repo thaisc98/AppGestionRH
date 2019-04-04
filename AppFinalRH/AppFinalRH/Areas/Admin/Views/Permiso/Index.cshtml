@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Empleado.CodigoEmp)
         </th>
         <th>
-            @Html.ActionLink("Agregar", "Create", FormMethod.Post, new { area = "Admin", @class = "btn btn-primary" })
+            @Html.ActionLink("Agregar", "Create", "Permiso", new {@class = "btn btn-primary" })
         </th>
     </tr>
 
@@ -42,8 +42,8 @@
                 @Html.DisplayFor(modelItem => item.Empleado.CodigoEmp)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id, area = "Admin" }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id, area = "Admin" }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id}, new{@class ="btn btn-info"}) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

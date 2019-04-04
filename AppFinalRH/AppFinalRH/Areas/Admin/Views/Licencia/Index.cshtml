@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Empleado.CodigoEmp)
         </th>
         <th>
-            @Html.ActionLink("Agregar licencia", "Create", "Licencia", new{@class ="btn btn-primary"})
+            @Html.ActionLink("Agregar", "Create", "Licencia", new{@class ="btn btn-primary col-md-6"})
         </th>
     </tr>
 
@@ -47,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.Empleado.CodigoEmp)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new{@class ="btn btn-info"}) |
                 @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
             </td>
         </tr>

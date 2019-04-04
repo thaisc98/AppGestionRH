@@ -18,10 +18,10 @@
             @Html.DisplayNameFor(model => model.FechaSalida)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Empleado.CodigoEmp)
+            @Html.DisplayName("Empleado")
         </th>
         <th>
-            @Html.ActionLink("Agregar", "Create", "SalidaEmpleado", FormMethod.Post, new { area = "Admin" })
+            @Html.ActionLink("Agregar", "Create", "SalidaEmpleado", FormMethod.Post, new { area = "Admin", @class ="btn btn-primary" })
         </th>
     </tr>
 
@@ -35,13 +35,15 @@
                 @Html.DisplayFor(modelItem => item.Motivo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FechaSalida)
+                @Html.DisplayFor(modelItem => item.FechaSalida.Value.Date.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Empleado.CodigoEmp)
+                @Html.DisplayFor(modelItem => item.Empleado.Nombre)
+                @Html.DisplayFor(modelItem => item.Empleado.Apellido)
+                (@Html.DisplayFor(modelItem => item.Empleado.CodigoEmp))
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id, area = "Admin" }) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id, area = "Admin" }, new{@class ="btn btn-info"}) |
             </td>
         </tr>
     }

@@ -188,7 +188,6 @@
     <Content Include="Areas\Admin\Views\Vacacion\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Vacacion\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Permiso\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Permiso\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Permiso\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SalidaEmpleado\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Licencia\Index.cshtml" />
@@ -219,6 +218,7 @@
     <Content Include="Areas\Admin\Views\Nomina\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Nomina\Edit.cshtml" />
     <Content Include="Areas\Informe\Views\NominaI\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Permiso\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
