@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ODN
 {
     public class DepaValidacion
     {
-        [Required]
         public string CodigoDep { get; set; }
         [Required]
         public string NombreDep { get; set; }
@@ -17,7 +12,7 @@ namespace ODN
         
     }
 
-    [MetadataType(typeof(MetadataTypeAttribute))]
+    [MetadataType(typeof(DepaValidacion))]
     public partial class Departamento
     {
 
