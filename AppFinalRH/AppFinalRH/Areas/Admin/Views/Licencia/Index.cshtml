@@ -3,12 +3,9 @@
 @{
     ViewBag.Title = "Index";
 }
-<br/>
-<h2>Licencias</h2>
-<hr/>
-<p>
-    @Html.ActionLink("Create New", "Create",FormMethod.Post)
-</p>
+<br />
+<h3 class="text-center">Licencias</h3>
+<hr />
 <table class="table table-bordered table-hover table-responsive table-striped">
     <tr class="text-primary active">
         <th>
@@ -26,31 +23,51 @@
         <th>
             @Html.DisplayNameFor(model => model.Empleado.CodigoEmp)
         </th>
-        <th></th>
+        <th>
+            @Html.ActionLink("Agregar licencia", "Create", "Licencia", new{@class ="btn btn-primary"})
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Desde)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hasta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Motivo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comentarios)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Empleado.CodigoEmp)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new{@class = "btn btn-danger"})
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Motivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentarios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empleado.CodigoEmp)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+@{
+    double TotalPage = @ViewBag.TotalPages;
+}
+
+@for (int i = 1; i <= TotalPage; i++)
+{
+    if (i == ViewBag.Page)
+    {
+        <b>@Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })</b>
+    }
+    else
+    {
+        @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })
+    }
+}

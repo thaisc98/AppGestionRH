@@ -4,9 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Lista de Cargos</h2>
+<h3 class="text-center">Lista de Cargos</h3>
 
-<table class="table">
+<table class="table table-bordered table-hover table-responsive table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.CodigoCargo)
@@ -17,15 +17,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodigoCargo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreCargo)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoCargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCargo)
+            </td>
+        </tr>
+    }
 
 </table>
+
+@{
+    double TotalPage = @ViewBag.TotalPages;
+}
+
+@for (int i = 1; i <= TotalPage; i++)
+{
+    if (i == ViewBag.Page)
+    {
+        <b>@Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })</b>
+    }
+    else
+    {
+        @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })
+    }
+}

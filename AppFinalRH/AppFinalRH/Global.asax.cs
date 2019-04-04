@@ -12,6 +12,8 @@ namespace AppFinalRH
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //En caso de tener problemas, comentar la línea de código siguiente
+            GlobalFilters.Filters.Add(new AuthorizeAttribute());
         }
     }
 }

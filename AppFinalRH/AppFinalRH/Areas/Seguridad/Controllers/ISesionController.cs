@@ -5,14 +5,12 @@ using System.Web.Security;
 
 namespace AppFinalRH.Areas.Seguridad.Controllers
 {
+    [AllowAnonymous]
     public class ISesionController : Controller
     {
         private UsuarioLDN userldn;
 
-        public ISesionController()
-        {
-            userldn = new UsuarioLDN();
-        }
+        public ISesionController() => userldn = new UsuarioLDN();
 
         // GET: Seguridad/ISesion
         public ActionResult Index()

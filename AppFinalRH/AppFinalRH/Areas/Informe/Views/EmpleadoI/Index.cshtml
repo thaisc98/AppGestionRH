@@ -5,17 +5,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Lista Empleados</h2>
+<h3 class="text-center">Empleados</h3>
 
 
 <script>
     $(document).ready(function () {
 
-        $(document).ajaxStart(function() {
+        $(document).ajaxStart(function () {
             $("#cargando").show();
         });
 
-        $(document).ajaxStop(function() {
+        $(document).ajaxStop(function () {
             $("#cargando").hide();
         });
 </script>
@@ -139,3 +139,20 @@
     }
 
 </table>
+
+
+@{
+    double TotalPage = @ViewBag.TotalPages;
+}
+
+@for (int i = 1; i <= TotalPage; i++)
+{
+    if (i == ViewBag.Page)
+    {
+        <b>@Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })</b>
+    }
+    else
+    {
+        @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })
+    }
+}

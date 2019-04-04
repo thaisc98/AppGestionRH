@@ -5,7 +5,7 @@
 }
 
 <br/>
-<h2 class="text-center">Agregar permiso</h2>
+<h3 class="text-center">Agregar permiso</h3>
 <hr/>
 
 @using (Html.BeginForm("Create","Permiso",FormMethod.Post, new{area="Admin"})) 
@@ -13,8 +13,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Permiso</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.EmpleadoId, "EmpleadoId", htmlAttributes: new { @class = "control-label col-md-2" })

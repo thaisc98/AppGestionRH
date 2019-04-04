@@ -1,28 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using LDN;
+﻿using LDN;
 using ODN;
+using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Seguridad.Controllers
 {
+    [AllowAnonymous]
     public class RegistroController : Controller
     {
         private UsuarioLDN usuarioldn;
-        
-        public RegistroController()
-        {
-            usuarioldn = new UsuarioLDN();
-        }
+
+        public RegistroController() => usuarioldn = new UsuarioLDN();
 
         // GET: Seguridad/Registro
         public ActionResult Index()
         {
             return View();
         }
-
 
         [HttpPost]
         public ActionResult Index(Usuario user)
@@ -31,6 +24,7 @@ namespace AppFinalRH.Areas.Seguridad.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    user.Role = "A";
                     usuarioldn.Insert(user);
                     return RedirectToAction("Index", "Principal", new{area="Lobby"});
                 }

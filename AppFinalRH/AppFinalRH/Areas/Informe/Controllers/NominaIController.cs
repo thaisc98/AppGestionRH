@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using LDN;
 
@@ -8,17 +9,20 @@ namespace AppFinalRH.Areas.Informe.Controllers
     {
         private NominaLDN nominaLdn;
 
-        public NominaIController()
-        {
-            nominaLdn = new NominaLDN();
-        }
+        public NominaIController() => nominaLdn = new NominaLDN();
 
         // GET: Informe/NominaI
-        public ActionResult Index()
+        public ActionResult Index(string Page)
         {
-            return View(nominaLdn.GetApproved());
-        }
+            var x = nominaLdn.GetAll();
 
+            ViewBag.TotalPages = Math.Ceiling(x.Count() / 10.0);
+            int page = int.Parse(Page == null ? "1" : Page);
+            ViewBag.Page = page;
+
+            x = x.Skip((page - 1) * 10).Take(10);
+            return View(x);
+        }
         [HttpGet]
         public ActionResult Index(string Estado, string buscarPor, string buscar)
         {

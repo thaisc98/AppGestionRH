@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Create";
 }
-
-<h2>Create</h2>
+<br/>
+<h3 class="text-center">Agregar nómina</h3>
 
 
 @using (Html.BeginForm("Create", "Nomina", FormMethod.Post)) 
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Nomina</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

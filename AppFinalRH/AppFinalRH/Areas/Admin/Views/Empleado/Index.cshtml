@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 <br />
-<h2 class="text-center">Empleados</h2>
+<h3 class="text-center">Empleados</h3>
 <hr />
 <table class="table table-bordered table-hover table-responsive table-striped">
     <tr class="active text-primary">
@@ -39,7 +39,7 @@
             @Html.ActionLink("Departamento", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Departamento", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
         </th>
         <th>
-            @Html.ActionLink("Agregar", "Create", "Empleado", new { area = "Admin" }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Agregar", "Create", "Empleado", new { area = "Admin" }, new { @class = "btn btn-primary col-md-9" })
         </th>
     </tr>
 
@@ -79,9 +79,7 @@
                 @Html.DisplayFor(modelItem => item.Departamento.NombreDep)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { area = "Admin", onclick = "return confirmar();", @class = "btn btn-danger" })
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new{@class = "btn btn-info"}) |
             </td>
         </tr>
     }
@@ -106,6 +104,6 @@
 
 <script>
     function confirmar() {
-        return confirm('¿Seguro que quieres eliminar este departamento?');
+        return confirm('¿Seguro que quieres eliminar este empleado?');
     }
 </script>
