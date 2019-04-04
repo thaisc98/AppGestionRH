@@ -18,10 +18,10 @@
             @Html.ActionLink("Apellido", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Apellido", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
         </th>
         <th>
-            @Html.ActionLink("Teléfono", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Telefono", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
+            @Html.ActionLink("Edad", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Edad", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
         </th>
         <th>
-            @Html.ActionLink("Departamento", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Departamento", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
+            @Html.ActionLink("Teléfono", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Telefono", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
         </th>
         <th>
             @Html.ActionLink("Fecha de ingreso", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "FechaIngreso", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
@@ -101,7 +101,6 @@
     else
     {
         @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "Nombre" : ViewBag.SortBy), Page = i }, new{@class="btn btn-primary"})
-
     }
 }
 

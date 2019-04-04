@@ -22,9 +22,9 @@ namespace AppFinalRH.Areas.Admin.Controllers
 
         // GET: Admin/EmpleadoAdmin
         [HttpGet]
-        public ActionResult Index(string SortOrder, string SortBy, string Page)
+        public ActionResult Index(/*string SortOrder, string SortBy, */string Page)
         {
-            ViewBag.SortOrder = SortOrder;
+        /*    ViewBag.SortOrder = SortOrder;
             ViewBag.SortBy = SortBy;
 
             var empleados = empleadEmpleadoLDN.GetActives();
@@ -76,6 +76,19 @@ namespace AppFinalRH.Areas.Admin.Controllers
                             break;
                     }
 
+                    break;
+                case "Edad":
+                    switch (SortOrder)
+                    {
+                        case "Asc":
+                            empleados = empleados.OrderBy(x => x.Edad).ToList();
+                            break;
+                        case "Desc":
+                            empleados = empleados.OrderByDescending(x => x.Edad).ToList();
+                            break;
+                        default:
+                            break;
+                    }
                     break;
 
                 case "Telefono":
@@ -160,7 +173,9 @@ namespace AppFinalRH.Areas.Admin.Controllers
                 default:
                     empleados = empleados.OrderBy(x => x.Nombre).ToList();
                     break;
-            }
+            }*/
+
+        var empleados = empleadEmpleadoLDN.GetActives();
 
             ViewBag.TotalPages = Math.Ceiling(empleados.Count() / 10.0);
             int page = int.Parse(Page == null ? "1" : Page);
