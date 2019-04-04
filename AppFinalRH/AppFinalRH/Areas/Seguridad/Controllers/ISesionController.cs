@@ -13,16 +13,20 @@ namespace AppFinalRH.Areas.Seguridad.Controllers
     {
         private UsuarioLDN userldn;
 
+
         public ISesionController()
         {
             userldn = new UsuarioLDN();
             
         }
+
+
         // GET: Seguridad/ISesion
         public ActionResult Index()
         {
             return View();
         }
+
 
         public ActionResult Index(Usuario user)
         {

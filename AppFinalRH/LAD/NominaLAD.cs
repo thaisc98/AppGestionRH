@@ -45,10 +45,5 @@ namespace LAD
             db.SaveChanges();
 
         }
-
-
-
-
-
     }
 }

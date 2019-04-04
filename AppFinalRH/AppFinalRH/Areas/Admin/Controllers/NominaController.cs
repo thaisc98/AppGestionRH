@@ -10,9 +10,11 @@ namespace AppFinalRH.Areas.Admin.Controllers
     {
         private NominaLDN nominaLdn;
         private EmpleadoLDN empleadoLdn;
+        private MesLDN mesldn;
 
         public NominaController()
         {
+            mesldn = new MesLDN();
             nominaLdn = new NominaLDN();
             empleadoLdn = new EmpleadoLDN();
         }
@@ -21,7 +23,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
         // GET: Admin/Nomina
         public ActionResult Index()
         {
-            return View();
+            return View(nominaLdn.GetAll());
         }
 
         [HttpGet]
@@ -69,7 +71,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
             decimal total = empleadoLdn.GetActives().Sum(x => x.Salario);
             ViewBag.Total = total;
 
-            ViewBag.MesId = new SelectList(empleadoLdn.GetActives(), "Id", "Descripcion");
+            ViewBag.MesId = new SelectList(mesldn.GetAll(), "Id", "Descripcion");
 
             return View();
         }
