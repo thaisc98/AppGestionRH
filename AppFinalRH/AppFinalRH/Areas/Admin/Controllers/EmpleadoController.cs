@@ -22,9 +22,34 @@ namespace AppFinalRH.Areas.Admin.Controllers
 
         // GET: Admin/EmpleadoAdmin
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string SortOrder, string SortBy, string Page)
         {
-            return View(empleadEmpleadoLDN.GetAll());
+            ViewBag.SortOrder = SortOrder;
+            ViewBag.SortBy = SortBy;
+
+
+            var empleados = empleadEmpleadoLDN.GetAll();
+
+            /*
+            switch (SortBy)
+            {
+                switch ("Nombre")
+                {
+
+                    case "Asc":
+                        empleados = empleados.OrderBy(x => x.Nombre).ToList();
+                        break;
+                    case "Desc":
+                        empleados = empleados.OrderByDescending(x => x.Nombre).ToList();
+                        break;
+                }
+                    break;
+                case
+        }*/
+            
+            
+
+            return View();
         }
 
         [HttpGet]

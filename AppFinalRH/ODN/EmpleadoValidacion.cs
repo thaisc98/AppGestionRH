@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ODN
 {
     public class EmpleadoValidacion
     {
-
         [Required]
         public string CodigoEmp { get; set; }
         [Required]
@@ -17,6 +12,7 @@ namespace ODN
         [Required]
         public string Apellido { get; set; }
         [Required]
+        [Range(18,100, ErrorMessage = "La edad debe estar entre 18 y 100.")]
         public int Edad { get; set; }
         [Required]
         public string Telefono { get; set; }
