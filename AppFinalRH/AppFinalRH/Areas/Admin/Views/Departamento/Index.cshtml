@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.NombreDep)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Empleado1.CodigoEmp)
+            @Html.DisplayName("Encargado/a")
         </th>
         <th>
             @Html.ActionLink("Añadir", "Create", new { area = "Admin" }, new { @class = "btn btn-primary" })
@@ -32,7 +32,10 @@
                 @Html.DisplayFor(modelItem => item.NombreDep)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Empleado1.CodigoEmp)
+                @Html.DisplayFor(modelItem => item.Empleado1.Nombre)
+                @Html.DisplayFor(modelItem => item.Empleado1.Apellido)
+               (@Html.DisplayFor(modelItem => item.Empleado1.CodigoEmp))
+
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
