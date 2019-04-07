@@ -15,7 +15,7 @@ namespace ODN
     public partial class Vacacion
     {
         public int Id { get; set; }
-        public Nullable<int> EmpleadoId { get; set; }      
+        public Nullable<int> EmpleadoId { get; set; }
         public System.DateTime Desde { get; set; }
         public System.DateTime Hasta { get; set; }
         public string Comentarios { get; set; }

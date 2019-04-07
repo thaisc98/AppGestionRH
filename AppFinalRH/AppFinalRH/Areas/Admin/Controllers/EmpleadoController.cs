@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using LDN;
 using ODN;
@@ -31,7 +32,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.DepartamentoId = new SelectList(departamentoLDN.GetAll().ToList(), "Id", "NombreDep");
-            ViewBag.CargoId = new SelectList(cargoLDN.GetAll().ToList(), "Id", "NombreCargo");
+            ViewBag.CargoId = new SelectList( cargoLDN.GetAll(), "Id", "NombreCargo");
 
             return View();
         }
@@ -53,7 +54,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             ViewBag.DepartamentoId = new SelectList(departamentoLDN.GetAll().ToList(), "Id", "NombreDep");
-            ViewBag.CargoId = new SelectList(cargoLDN.GetAll().ToList(), "Id", "NombreCargo");
+            ViewBag.CargoId = new SelectList( cargoLDN.GetAll(), "Id", "NombreCargo");
 
             return View(empleadEmpleadoLDN.GetById(id));
         }

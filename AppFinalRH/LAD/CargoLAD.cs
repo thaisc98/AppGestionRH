@@ -1,7 +1,9 @@
-﻿using ODN;
+﻿using System.Collections;
+using ODN;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LAD
 {
@@ -20,27 +22,27 @@ namespace LAD
 
         public Cargo GetById(int id)
         {
-            return db.Cargo.Find(id);
+            return  db.Cargo.Find(id);
 
         }
 
         public void Insert(Cargo cargo)
         {
             db.Cargo.Add(cargo);
-            db.SaveChanges();
+            db.SaveChangesAsync();
         }
 
         public void Update(Cargo cargo)
         {
             db.Entry(cargo).State = EntityState.Modified;
-            db.SaveChanges();
+            db.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public  void Delete(int id)
         {
             var x = db.Cargo.Find(id);
             db.Cargo.Remove(x);
-            db.SaveChanges();
+            db.SaveChangesAsync();
         }
 
 

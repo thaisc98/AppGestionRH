@@ -1,0 +1,194 @@
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<ODN.Nomina>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br/>
+<h3 class="text-center">Manejo de Nominas</h3>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $(document).ajaxStart(function() {
+            $("#loading").show();
+        });
+
+        $(document).ajaxStop(function() {
+            $("#loading").hide();
+        });
+
+        $('#selectall').click(function(event) {
+            if (this.checked) {
+                $('.ckb').each(function() {
+                    this.checked = true;
+                });
+            } else {
+                $('.ckb').each(function() {
+                    this.checked = false;
+                });
+            }
+        });
+        $("#Approve").click(function() {
+            checkedIds = $(".ckb").filter(":checked").map(function () { return this.id });
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ApproveOrRejectAll", "ContadorN")",
+                traditional: true,
+             data: { Ids: checkedIds.toArray(), Status: "A" },
+             success: successFunc,
+             error: errorFunc
+            });
+            function successFunc(data, status) {
+                location.reload();
+            }
+            function errorFunc() {
+                alert('error');
+            }
+        });
+        $("#Reject").click(function() {
+            checkedIds = $(".ckb").filter(":checked").map(function () { return this.id });
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ApproveOrRejectAll", "ContadorN")",
+                traditional: true,
+                data: { Ids: checkedIds.toArray(), Status: "R" },
+                success: successFunc,
+                error: errorFunc
+            });
+            function successFunc(data, status) {
+                location.reload();
+            }
+            function errorFunc() {
+                alert('error');
+            }
+        });
+    });
+
+
+        function ConfirmApprove() {
+            return confirm('¿Seguro que quieres aprovar esta tarea?');
+        }
+        function ConfirmReject() {
+            return confirm('¿Seguro que quieres reprobar esta tarea?');
+        }
+</script>
+
+
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @TempData["Msg"].ToString()
+    </div>
+}
+<div id="loading" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Cargando...</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress progress-striped active">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul class="nav nav-pills">
+    @if(ViewBag.Status == "P"){
+        <li class="active">
+            @Html.ActionLink("Pendientes","Index", new{Status = "P"})
+
+        </li>
+    }
+    else
+    {
+        <li >
+            @Html.ActionLink("Pendientes", "Index", new { Status = "P" })
+        </li>
+    }
+    
+    @if(ViewBag.Status == "A"){
+        <li class="active">
+         @Html.ActionLink("Activos","Index", new{Status = "A"})
+        </li>
+    }
+    else
+    {
+        <li >
+         @Html.ActionLink("Activos", "Index", new { Status = "A"})
+        </li>
+    }
+    
+    @if(ViewBag.Status == "R"){
+        <li class="active">
+            @Html.ActionLink("Reprobados","Index", new{Status = "R"})
+        </li>
+    }
+    else
+    {
+        <li >
+            @Html.ActionLink("Reprobados", "Index", new { Status = "R"})
+        </li>
+    }
+</ul>
+
+<table class="table table-hover table-bordered table-responsive table-striped">
+    <tr class="active">
+        <th>
+            @Html.CheckBox("selectall")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Anio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MesT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MontoT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mes.Descripcion)
+        </th>
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.CheckBox(item.Id.ToString(),false,new{@class="ckb",Id=item.Id})
+            </td>    
+            <td>
+                @Html.DisplayFor(modelItem => item.Anio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MesT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontoT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mes.Descripcion)
+            </td>
+
+        </tr>
+    }
+  
+</table>
+<input class="btn btn-primary" value="Aprobar" id="Approve" type="button" /> |
+<input class="btn btn-danger" value="Reprobar" id="Reject" type="button" />
+
+
+
+

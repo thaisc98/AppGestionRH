@@ -18,7 +18,7 @@ namespace ODN
         public Nullable<int> EmpleadoId { get; set; }
         public string Tipo { get; set; }
         public string Motivo { get; set; }
-        public Nullable<System.DateTime> FechaSalida { get; set; }
+        public System.DateTime FechaSalida { get; set; }
     
         public virtual Empleado Empleado { get; set; }
     }

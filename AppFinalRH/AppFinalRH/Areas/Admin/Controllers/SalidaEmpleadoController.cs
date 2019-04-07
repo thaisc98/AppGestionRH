@@ -54,8 +54,15 @@ namespace AppFinalRH.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(SalidaEmpleado salidaEmpleado)
         {
+            ViewBag.EmpleadoId = empleldn.GetAll().Where(y => y.Estatus == "A").Select(x => new SelectListItem()
+            {
+                Text = x.Nombre + " " + x.Apellido + " (" + x.CodigoEmp + ") ",
+                Value = x.Id.ToString()
+            });
+
             if (ModelState.IsValid)
             {
+
                 var x = empleldn.GetActives().Where(y => y.Id == salidaEmpleado.EmpleadoId);
                 var instanciavalor = x.First();
                 instanciavalor.Estatus = "I";

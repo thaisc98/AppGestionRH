@@ -59,23 +59,26 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Nómina", "Index", "NominaI", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Empleados", "Index", "SalidaEmpleadoI", new { area = "Informe" }, new { })</li>
+                            <li>@Html.ActionLink("Empleados", "Index", "EmpleadoI", new { area = "Informe" }, new { })</li>
                             <li>@Html.ActionLink("Departamentos", "Index", "VacacionI", new { area = "Informe" }, new { })</li>
                             <li>@Html.ActionLink("Cargos", "Index", "CargoI", new { area = "Informe" }, new { })</li>
                             <li>@Html.ActionLink("Licencias", "Index", "LicenciaI", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Entradas de empleados por mes", "Index", "Licencia", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Salidas de empleados por mes", "Index", "Licencia", new { area = "Informe" }, new { })</li>
+                            <li>@Html.ActionLink("Entradas de empleados por mes", "Index", "EntradaMEmp", new { area = "Informe" }, new { })</li>
+                            <li>@Html.ActionLink("Salidas de empleados por mes", "Index", "SalidaMEmp", new { area = "Informe" }, new { })</li>
                             <li>@Html.ActionLink("Vacaciones por año", "Index", "VacacionI", new { area = "Informe" }, new { })</li>
                             <li>@Html.ActionLink("Permisos", "Index", "PermisoI", new { area = "Informe" }, new { })</li>
                         </ul>
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Cerrar sesión", "LogOut", new { Controller = "ISesion", Area = "Seguridad" })</li>
+                </ul>
             }
             else
             {
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Iniciar sesión", "Index", new {Controller = "ISesion", Area = "Seguridad"})</li>
-                    <li>@Html.ActionLink("Registrarse", "Index", new {Controller = "Registro", Area = "Seguridad"})</li>
+                    <li>@Html.ActionLink("Iniciar sesión", "Index", new { Controller = "ISesion", Area = "Seguridad" })</li>
+                    <li>@Html.ActionLink("Registrarse", "Index", new { Controller = "Registro", Area = "Seguridad" })</li>
                 </ul>
             }
 

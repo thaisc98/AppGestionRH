@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LAD
 {
@@ -14,18 +15,18 @@ namespace LAD
             db = new GestionRHDbEntities();
         }
 
-        public IEnumerable<Empleado> GetAll()
+        public  IEnumerable<Empleado> GetAll()
         {
             return db.Empleado.ToList();
         }
 
         public Empleado GetById(int id)
         {
-            return db.Empleado.Find(id);
+            return  db.Empleado.Find(id);
 
         }
 
-        public void Insert(Empleado empleado)
+        public   void Insert(Empleado empleado)
         {
             db.Empleado.Add(empleado);
             db.SaveChanges();
@@ -37,11 +38,11 @@ namespace LAD
             db.SaveChanges();
         }
 
-        public void Delete(int id)
+        public   void Delete(int id)
         {
             var x = db.Empleado.Find(id);
             db.Empleado.Remove(x);
-            db.SaveChanges();
+             db.SaveChanges();
         }
 
     }

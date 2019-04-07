@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ODN
 {
@@ -14,8 +10,7 @@ namespace ODN
         public string Tipo { get; set; }
         [Required]
         public string Motivo { get; set; }
-        [DataType(DataType.Date)]
-        public Nullable<System.DateTime> FechaSalida { get; set; }
+        public System.DateTime FechaSalida { get; set; }
     }
 
 

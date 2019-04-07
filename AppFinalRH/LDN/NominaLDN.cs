@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using LAD;
 using ODN;
+
 
 namespace LDN
 {
@@ -53,6 +56,28 @@ namespace LDN
         public void Delete(int id)
         {
             objLAD.Delete(id);
+        }
+
+        public void  ApproveOrRejectAll(List<int> Ids, string estatus)
+        {
+            using (TransactionScope trans = new TransactionScope())
+            {
+                try
+                {
+                    foreach (var x in Ids)
+                    {
+                        var a = objLAD.GetById(x);
+                        a.Estatus = estatus;
+                        objLAD.Update(a);
+                    }
+
+                    trans.Complete();
+                }
+                catch
+                {
+                    throw new Exception();
+                }
+            }
         }
     }
 }

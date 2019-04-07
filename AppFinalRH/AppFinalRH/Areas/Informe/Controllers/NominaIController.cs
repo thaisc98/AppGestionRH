@@ -12,7 +12,7 @@ namespace AppFinalRH.Areas.Informe.Controllers
         public NominaIController() => nominaLdn = new NominaLDN();
 
         // GET: Informe/NominaI
-        public ActionResult Index(string Page)
+        /*public ActionResult Index(string Page)
         {
             var x = nominaLdn.GetAll();
 
@@ -22,7 +22,7 @@ namespace AppFinalRH.Areas.Informe.Controllers
 
             x = x.Skip((page - 1) * 10).Take(10);
             return View(x);
-        }
+        }*/
         [HttpGet]
         public ActionResult Index(string Estado, string buscarPor, string buscar)
         {

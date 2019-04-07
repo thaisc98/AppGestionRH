@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using LAD;
 using ODN;
 
@@ -16,27 +17,27 @@ namespace LDN
 
         public IEnumerable<Cargo> GetAll()
         {
-            return objLAD.GetAll();
+            return  objLAD.GetAll();
         }
 
         public Cargo GetById(int id)
         {
-            return objLAD.GetById(id);
+            return  objLAD.GetById(id);
         }
 
         public void Insert(Cargo cargo)
         {
-            objLAD.Insert(cargo);
+             objLAD.Insert(cargo);
         }
 
-        public void Update(Cargo cargo)
+        public  void Update(Cargo cargo)
         {
             objLAD.Update(cargo);
         }
 
         public void Delete(int id)
         {
-            objLAD.Delete(id);
+             objLAD.Delete(id);
         }
     }
 }

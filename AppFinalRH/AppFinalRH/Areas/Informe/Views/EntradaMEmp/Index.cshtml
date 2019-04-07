@@ -1,0 +1,91 @@
+﻿@model IEnumerable<ODN.Empleado>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br/>
+<h3 class="text-center">Entrada de empleados </h3>
+
+@using (Html.BeginForm("Index", "EntradaMEmp", FormMethod.Get))
+{
+
+    <b>Buscar por:</b>
+    @Html.RadioButton("buscarPor", "Mes", true) <text>Mes</text>
+    @Html.RadioButton("buscarPor", "Anio")<text>Año</text>
+    <p>
+        <b>Buscar por:</b> @Html.TextBox("buscar") <input type="submit" value="buscar" class="btn btn-primary"/>
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoEmp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cargo.CodigoCargo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departamento.CodigoDep)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoEmp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaIngreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo.CodigoCargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departamento.CodigoDep)
+            </td>
+        </tr>
+    }
+
+</table>

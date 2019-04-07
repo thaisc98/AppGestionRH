@@ -85,7 +85,7 @@
           <Property Name="EmpleadoId" Type="int" />
           <Property Name="Tipo" Type="varchar" MaxLength="80" Nullable="false" />
           <Property Name="Motivo" Type="varchar(max)" Nullable="false" />
-          <Property Name="FechaSalida" Type="datetime" />
+          <Property Name="FechaSalida" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -345,7 +345,7 @@
           <Property Name="EmpleadoId" Type="Int32" />
           <Property Name="Tipo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Motivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FechaSalida" Type="DateTime" Precision="3" />
+          <Property Name="FechaSalida" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Empleado" Relationship="Self.FK_Salida_Emp" FromRole="SalidaEmpleado" ToRole="Empleado" />
         </EntityType>
         <EntityType Name="Usuario">

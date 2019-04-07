@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using LAD;
 using ODN;
 
@@ -22,11 +23,11 @@ namespace LDN
 
         public IEnumerable<Empleado> GetActives()
         {
-            return objLAD.GetAll().Where(x => x.Estatus == "A");
+            return  objLAD.GetAll().Where(x => x.Estatus == "A");
         }
         public IEnumerable<Empleado> GetInactives()
         {
-            return objLAD.GetAll().Where(x => x.Estatus == "I");
+            return  objLAD.GetAll().Where(x => x.Estatus == "I");
         }
 
         public Empleado GetById(int id)

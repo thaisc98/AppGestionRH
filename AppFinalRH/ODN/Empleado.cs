@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace ODN
 {
     using System;
@@ -34,7 +32,6 @@ namespace ODN
         public string Telefono { get; set; }
         public Nullable<int> DepartamentoId { get; set; }
         public Nullable<int> CargoId { get; set; }
-        [DataType(DataType.Date)]
         public System.DateTime FechaIngreso { get; set; }
         public decimal Salario { get; set; }
         public string Estatus { get; set; }

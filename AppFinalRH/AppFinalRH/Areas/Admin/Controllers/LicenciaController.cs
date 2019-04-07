@@ -11,6 +11,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
         private LicenciaLDN liceldn;
         private EmpleadoLDN empleldn;
 
+
         public LicenciaController()
         {
             liceldn = new LicenciaLDN();

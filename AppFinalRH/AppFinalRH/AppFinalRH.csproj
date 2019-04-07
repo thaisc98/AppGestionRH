@@ -141,13 +141,17 @@
     <Compile Include="Areas\Admin\Controllers\PermisoController.cs" />
     <Compile Include="Areas\Admin\Controllers\SalidaEmpleadoController.cs" />
     <Compile Include="Areas\Admin\Controllers\VacacionController.cs" />
+    <Compile Include="Areas\Contador\ContadorAreaRegistration.cs" />
+    <Compile Include="Areas\Contador\Controllers\ContadorNController.cs" />
     <Compile Include="Areas\Informe\Controllers\CargoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\DepartamentoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\EmpleadoIController.cs" />
+    <Compile Include="Areas\Informe\Controllers\EntradaMEmpController.cs" />
     <Compile Include="Areas\Informe\Controllers\LicenciaIController.cs" />
     <Compile Include="Areas\Informe\Controllers\NominaIController.cs" />
     <Compile Include="Areas\Informe\Controllers\PermisoIController.cs" />
     <Compile Include="Areas\Informe\Controllers\SalidaEmpleadoIController.cs" />
+    <Compile Include="Areas\Informe\Controllers\SalidaMEmpController.cs" />
     <Compile Include="Areas\Informe\Controllers\VacacionIController.cs" />
     <Compile Include="Areas\Informe\InformeAreaRegistration.cs" />
     <Compile Include="Areas\Lobby\Controllers\PrincipalController.cs" />
@@ -219,6 +223,12 @@
     <Content Include="Areas\Admin\Views\Nomina\Edit.cshtml" />
     <Content Include="Areas\Informe\Views\NominaI\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Permiso\Create.cshtml" />
+    <Content Include="Areas\Informe\Views\EntradaMEmp\Index.cshtml" />
+    <Content Include="Areas\Informe\Views\SalidaMEmp\Index.cshtml" />
+    <Content Include="Areas\Contador\Views\web.config" />
+    <Content Include="Areas\Contador\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Contador\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Contador\Views\ContadorN\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -248,6 +258,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Contador\Models\" />
     <Folder Include="Areas\Informe\Models\" />
     <Folder Include="Areas\Lobby\Models\" />
     <Folder Include="Areas\Seguridad\Models\" />

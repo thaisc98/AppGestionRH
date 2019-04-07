@@ -2,6 +2,7 @@
 using ODN;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Admin.Controllers
@@ -17,16 +18,17 @@ namespace AppFinalRH.Areas.Admin.Controllers
 
 
         // GET: Cargo
-        public ActionResult Index(string Page)
+       
+        public  ActionResult Index(string Page)
         {
-            var x = cargoldn.GetAll();
+            var x =  cargoldn.GetAll();
 
             ViewBag.TotalPages = Math.Ceiling(x.Count() / 10.0);
             int page = int.Parse(Page == null ? "1" : Page);
             ViewBag.Page = page;
 
             x = x.Skip((page - 1) * 10).Take(10);
-            return View(x);
+            return  View(x);
         }
 
         [HttpGet]
@@ -38,21 +40,18 @@ namespace AppFinalRH.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(Cargo cargo)
         {
-
             if (ModelState.IsValid)
             {
                 cargoldn.Insert(cargo);
                 return RedirectToAction("Index", "Cargo",new{area ="Admin"});
             }
             return View();
-
         }
-
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var x = cargoldn.GetById(id);
+            var x =  cargoldn.GetById(id);
             return View(x);
         }
 
@@ -73,7 +72,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
 
             try
             {
-                cargoldn.Delete(id);
+               cargoldn.Delete(id);
                return RedirectToAction("Index", "Cargo");
             }
             catch
