@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LDN;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using LDN;
 
 namespace AppFinalRH.Areas.Informe.Controllers
 {
@@ -12,12 +9,8 @@ namespace AppFinalRH.Areas.Informe.Controllers
 
         public EmpleadoLDN empldn;
 
-
         public EntradaMEmpController() => empldn = new EmpleadoLDN();
         
-
-
-
         // GET: Informe/EntradaMEmp
         public ActionResult Index(string buscarPor,string buscar)
         {
@@ -29,15 +22,9 @@ namespace AppFinalRH.Areas.Informe.Controllers
             {
                 return View(empldn.GetAll().Where(y => y.FechaIngreso.Year.ToString() == buscar|| buscar == null));
             }
-
             var x = empldn.GetAll();
             return View(x);
         }
-
-
-
-
-
 
     }
 }

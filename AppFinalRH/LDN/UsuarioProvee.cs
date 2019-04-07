@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Security;
+using LAD;
 
 namespace LDN
 {
@@ -109,5 +110,65 @@ namespace LDN
         public override int MinRequiredPasswordLength { get; }
         public override int MinRequiredNonAlphanumericCharacters { get; }
         public override string PasswordStrengthRegularExpression { get; }
+    }
+
+    public class RolProvee : RoleProvider
+    {
+        private UsuarioLAD db;
+
+        public RolProvee() => db = new UsuarioLAD();
+
+        public override bool IsUserInRole(string username, string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string[] GetRolesForUser(string username)
+        {
+            string[] s = {db.GetAll().Where(x => x.Email == username).FirstOrDefault().Role};
+            return s;
+        }
+
+        public override void CreateRole(string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool DeleteRole(string roleName, bool throwOnPopulatedRole)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool RoleExists(string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AddUsersToRoles(string[] usernames, string[] roleNames)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string[] GetUsersInRole(string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string[] GetAllRoles()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string[] FindUsersInRole(string roleName, string usernameToMatch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ApplicationName { get; set; }
     }
 }

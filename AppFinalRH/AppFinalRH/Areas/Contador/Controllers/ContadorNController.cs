@@ -10,7 +10,6 @@ namespace AppFinalRH.Areas.Contador.Controllers
         public NominaLDN nominldnn;
 
         public ContadorNController() => nominldnn = new NominaLDN();
-
        
         // GET: Contador/ContadorN
         public ActionResult Index(string Status)
@@ -26,8 +25,6 @@ namespace AppFinalRH.Areas.Contador.Controllers
             {
                 return View(nominldnn.GetAll().Where(x => x.Estatus == Status));
             }
-
-
         }
 
         public ActionResult Approve(int id)

@@ -26,53 +26,69 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <ul class="nav navbar-nav">
+                if (User.IsInRole("A"))
+                {
+                    <ul class="nav navbar-nav">
 
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Mantenimiento
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Cargos", "Index", "Cargo", new { area = "Admin" }, new { })</li>
-                            <li>@Html.ActionLink("Departamentos", "Index", "Departamento", new { area = "Admin" }, new { })</li>
-                            <li>@Html.ActionLink("Empleados", "Index", "Empleado", new { area = "Admin" }, new { })</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Procesos
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Nómina", "Index", "Nomina", new { area = "Admin" }, new { })</li>
-                            <li>@Html.ActionLink("Salidas de empleados", "Index", "SalidaEmpleado", new { area = "Admin" }, new { })</li>
-                            <li>@Html.ActionLink("Vacaciones", "Index", "Vacacion", new { area = "Admin" }, new { })</li>
-                            <li>@Html.ActionLink("Permisos", "Index", "Permiso", new { area = "Admin" }, new { })</li>
-                            <li>@Html.ActionLink("Licencias", "Index", "Licencia", new { area = "Admin" }, new { })</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Informes
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Nómina", "Index", "NominaI", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Empleados", "Index", "EmpleadoI", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Departamentos", "Index", "VacacionI", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Cargos", "Index", "CargoI", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Licencias", "Index", "LicenciaI", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Entradas de empleados por mes", "Index", "EntradaMEmp", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Salidas de empleados por mes", "Index", "SalidaMEmp", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Vacaciones por año", "Index", "VacacionI", new { area = "Informe" }, new { })</li>
-                            <li>@Html.ActionLink("Permisos", "Index", "PermisoI", new { area = "Informe" }, new { })</li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Cerrar sesión", "LogOut", new { Controller = "ISesion", Area = "Seguridad" })</li>
-                </ul>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Mantenimiento
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Cargos", "Index", "Cargo", new { area = "Admin" }, new { })</li>
+                                <li>@Html.ActionLink("Departamentos", "Index", "Departamento", new { area = "Admin" }, new { })</li>
+                                <li>@Html.ActionLink("Empleados", "Index", "Empleado", new { area = "Admin" }, new { })</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Procesos
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Nómina", "Index", "Nomina", new { area = "Admin" }, new { })</li>
+                                <li>@Html.ActionLink("Salidas de empleados", "Index", "SalidaEmpleado", new { area = "Admin" }, new { })</li>
+                                <li>@Html.ActionLink("Vacaciones", "Index", "Vacacion", new { area = "Admin" }, new { })</li>
+                                <li>@Html.ActionLink("Permisos", "Index", "Permiso", new { area = "Admin" }, new { })</li>
+                                <li>@Html.ActionLink("Licencias", "Index", "Licencia", new { area = "Admin" }, new { })</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Informes
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Nómina", "Index", "NominaI", new { area = "Informe" }, new { })</li>
+                                <li>@Html.ActionLink("Empleados", "Index", "EmpleadoI", new { area = "Informe" }, new { })</li>
+                                <li>@Html.ActionLink("Departamentos", "Index", "VacacionI", new { area = "Informe" }, new { })</li>
+                                <li>@Html.ActionLink("Cargos", "Index", "CargoI", new { area = "Informe" }, new { })</li>
+                                <li>@Html.ActionLink("Licencias", "Index", "LicenciaI", new { area = "Informe" }, new { })</li>
+                                <li>@Html.ActionLink("Entradas de empleados por mes", "Index", "EntradaMEmp", new { area = "Informe" }, new { })</li>
+                                <li>@Html.ActionLink("Salidas de empleados por mes", "Index", "SalidaMEmp", new { area = "Informe" }, new { })</li>
+                                <li>@Html.ActionLink("Vacaciones por año", "Index", "VacacionI", new { area = "Informe" }, new { })</li>
+                                <li>@Html.ActionLink("Permisos", "Index", "PermisoI", new { area = "Informe" }, new { })</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Cerrar sesión", "LogOut", new { Controller = "ISesion", Area = "Seguridad" })</li>
+                    </ul>
+                }
+
+                if (User.IsInRole("C"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>
+                            @Html.ActionLink("Gestión RH", "Index", "ContadorN", new { area = "Lobby" }, new { @class = ""})
+                        </li> 
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Cerrar sesión", "LogOut", new { Controller = "ISesion", Area = "Seguridad" })</li>
+                    </ul>
+                }
             }
             else
             {
