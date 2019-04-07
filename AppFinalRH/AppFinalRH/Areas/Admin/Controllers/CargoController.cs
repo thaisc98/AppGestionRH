@@ -2,11 +2,11 @@
 using ODN;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "A")]
     public class CargoController : Controller
     {
         private CargoLDN cargoldn;

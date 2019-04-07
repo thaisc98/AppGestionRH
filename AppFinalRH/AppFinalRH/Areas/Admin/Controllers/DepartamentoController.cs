@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "A")]
     public class DepartamentoController : Controller
     {
         private DepartamentoLDN depaldn;

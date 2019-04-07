@@ -1,12 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using LDN;
+﻿using LDN;
 using ODN;
+using System;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "A")]
     public class EmpleadoController : Controller
     {
         private EmpleadoLDN empleadEmpleadoLDN;

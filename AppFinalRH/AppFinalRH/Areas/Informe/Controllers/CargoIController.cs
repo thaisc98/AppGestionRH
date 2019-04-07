@@ -1,12 +1,11 @@
-﻿using System;
+﻿using LDN;
+using System;
 using System.Linq;
-using System.Threading.Tasks;
-using LDN;
 using System.Web.Mvc;
-using System.Web.UI;
 
 namespace AppFinalRH.Areas.Informe.Controllers
 {
+    [Authorize(Roles = "A")]
     public class CargoIController : Controller
     {
         private CargoLDN c;

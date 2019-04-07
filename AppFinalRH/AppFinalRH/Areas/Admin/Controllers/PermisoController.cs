@@ -1,12 +1,12 @@
-﻿using System;
-using LDN;
+﻿using LDN;
 using ODN;
+using System;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.UI;
 
 namespace AppFinalRH.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "A")]
     public class PermisoController : Controller
     {
         private PermisoLDN permisoldn;

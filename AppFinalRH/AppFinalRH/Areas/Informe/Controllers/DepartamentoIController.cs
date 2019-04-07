@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Informe.Controllers
 {
+    [Authorize(Roles = "A")]
     public class DepartamentoIController : Controller
     {
         private DepartamentoLDN dldn;

@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Contador.Controllers
 {
+    [Authorize(Roles = "C")]
     public class ContadorNController : Controller
     {
         public NominaLDN nominldnn;

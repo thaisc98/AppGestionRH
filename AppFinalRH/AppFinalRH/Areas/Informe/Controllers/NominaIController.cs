@@ -1,10 +1,10 @@
-﻿using System;
+﻿using LDN;
 using System.Linq;
 using System.Web.Mvc;
-using LDN;
 
 namespace AppFinalRH.Areas.Informe.Controllers
 {
+    [Authorize(Roles = "A")]
     public class NominaIController : Controller
     {
         private NominaLDN nominaLdn;

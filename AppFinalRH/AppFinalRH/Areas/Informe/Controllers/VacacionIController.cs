@@ -5,6 +5,7 @@ using LDN;
 
 namespace AppFinalRH.Areas.Informe.Controllers
 {
+    [Authorize(Roles = "A")]
     public class VacacionIController : Controller
     {
         private VacacionLDN vacacionLdn;

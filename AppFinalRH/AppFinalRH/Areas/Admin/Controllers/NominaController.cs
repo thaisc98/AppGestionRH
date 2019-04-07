@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "A")]
     public class NominaController : Controller
     {
         private NominaLDN nominaLdn;

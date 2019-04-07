@@ -73,6 +73,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">@User.Identity.Name</a></li>
                         <li>@Html.ActionLink("Cerrar sesión", "LogOut", new { Controller = "ISesion", Area = "Seguridad" })</li>
                     </ul>
                 }
@@ -81,12 +82,13 @@
                 {
                     <ul class="nav navbar-nav">
                         <li>
-                            @Html.ActionLink("Gestión RH", "Index", "ContadorN", new { area = "Lobby" }, new { @class = ""})
+                            @Html.ActionLink("Manejar nómina", "Index", "ContadorN", new { area = "Contador" }, new { @class = ""})
                         </li> 
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Cerrar sesión", "LogOut", new { Controller = "ISesion", Area = "Seguridad" })</li>
+                        <li><a href="#">@User.Identity.Name</a></li>
+                        <li>@Html.ActionLink("Cerrar sesión", "LogOut", new {Controller = "ISesion", Area = "Seguridad"})</li>
                     </ul>
                 }
             }

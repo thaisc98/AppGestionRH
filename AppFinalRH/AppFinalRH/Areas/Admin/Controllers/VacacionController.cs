@@ -6,6 +6,7 @@ using ODN;
 
 namespace AppFinalRH.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "A")]
     public class VacacionController : Controller
     {
         private VacacionLDN objsBs;

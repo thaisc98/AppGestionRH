@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LDN;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using LDN;
-using ODN;
 
 namespace AppFinalRH.Areas.Informe.Controllers
 {
+    [Authorize(Roles = "A")]
     public class SalidaMEmpController : Controller
     {
 

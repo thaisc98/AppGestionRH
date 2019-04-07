@@ -5,6 +5,7 @@ using LDN;
 
 namespace AppFinalRH.Areas.Informe.Controllers
 {
+    [Authorize(Roles = "A")]
     public class PermisoIController : Controller
     {
         private PermisoLDN permisoLdn;
