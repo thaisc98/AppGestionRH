@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<br/>
 <h3 class="text-center">Inicio de sesión</h3>
 
 
@@ -29,7 +29,7 @@
                 @Html.ValidationMessageFor(model => model.Contra, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-inline">
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Iniciar sesión" class="btn btn-primary" />

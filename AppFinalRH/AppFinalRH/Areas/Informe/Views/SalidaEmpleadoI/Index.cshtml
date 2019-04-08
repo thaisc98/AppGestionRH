@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<br/>
 <h3 class="text-center">Salidas de empleados</h3>
 
 <table class="table table-striped table-bordered table-hover table-responsive">
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.FechaSalida)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Empleado.CodigoEmp)
+            @Html.DisplayName("Empleado")
         </th>
         <th></th>
     </tr>
@@ -36,11 +36,12 @@
                 @Html.DisplayFor(modelItem => item.FechaSalida)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Empleado.CodigoEmp)
+                @Html.DisplayFor(modelItem => item.Empleado.Nombre)
+                @Html.DisplayFor(modelItem => item.Empleado.Apellido)
+                (@Html.DisplayFor(modelItem => item.Empleado.CodigoEmp))
             </td>
         </tr>
     }
-
 </table>
 
 @*

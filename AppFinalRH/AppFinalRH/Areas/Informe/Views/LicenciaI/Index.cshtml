@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Comentarios)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Empleado.CodigoEmp)
+            @Html.DisplayName("Empleado")
         </th>
         <th></th>
     </tr>
@@ -43,7 +43,9 @@
                 @Html.DisplayFor(modelItem => item.Comentarios)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Empleado.CodigoEmp)
+                @Html.DisplayFor(modelItem => item.Empleado.Nombre)
+                @Html.DisplayFor(modelItem => item.Empleado.Apellido)
+                (@Html.DisplayFor(modelItem => item.Empleado.CodigoEmp))
             </td>
         </tr>
     }

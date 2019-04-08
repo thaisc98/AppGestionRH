@@ -31,7 +31,9 @@
                 @Html.DisplayFor(modelItem => item.NombreDep)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Empleado1.CodigoEmp)
+                (@Html.DisplayFor(modelItem => item.Empleado1.Nombre)) 
+                (@Html.DisplayFor(modelItem => item.Empleado1.Apellido))
+                (@Html.DisplayFor(modelItem => item.Empleado1.CodigoEmp))
             </td>
         </tr>
     }
