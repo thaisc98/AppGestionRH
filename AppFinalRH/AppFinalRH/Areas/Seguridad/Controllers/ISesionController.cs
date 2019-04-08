@@ -31,7 +31,7 @@ namespace AppFinalRH.Areas.Seguridad.Controllers
             }
             catch
             {
-                TempData["MensajeE"] = "Ha ocurrido un error al iniciar sesión";
+                TempData["Msg"] = "Ha ocurrido un error al iniciar sesión";
                 return RedirectToAction("Index", "ISesion");
             }
             return View();

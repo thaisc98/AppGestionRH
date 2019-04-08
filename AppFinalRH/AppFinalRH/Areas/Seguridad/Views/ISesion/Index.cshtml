@@ -3,14 +3,21 @@
 @{
     ViewBag.Title = "Index";
 }
-<br/>
+<br />
 <h3 class="text-center">Inicio de sesión</h3>
 
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @TempData["Msg"].ToString()
+    </div>
+}
 
-@using (Html.BeginForm("Index","ISesion",FormMethod.Post)) 
+@using (Html.BeginForm("Index", "ISesion", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -29,15 +36,17 @@
                 @Html.ValidationMessageFor(model => model.Contra, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-inline">
-            <div class="form-group">
+        <br/>
+        <div class="form-inline"  >
+            <div class="form-group" style="margin-left: 150px;">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Iniciar sesión" class="btn btn-primary" />
+                    <input type="submit" value="Iniciar sesión" class="btn btn-primary"  />
                 </div>
             </div>
-            <div class="form-group">
+           
+            <div class="form-group"  style="margin-left: 10px;">
                 <div class="col-md-offset-2 col-md-10">
-                    @Html.ActionLink("Cancelar", "Index", "ISesion", new {@class = "btn btn-danger"})
+                    @Html.ActionLink("Cancelar", "Index", "ISesion", new { @class = "btn btn-danger" })
                 </div>
             </div>
         </div>

@@ -3,10 +3,18 @@
 @{
     ViewBag.Title = "Index";
 }
-<br/>
+<br />
 <h3 class="text-center">Registro de usuarios</h3>
-
-@using (Html.BeginForm("Index","Registro",FormMethod.Post)) 
+<br />
+@if (TempData["Msg"] != null)
+{
+    <br />
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @TempData["Msg"].ToString()
+    </div>
+}
+@using (Html.BeginForm("Index", "Registro", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
@@ -28,14 +36,14 @@
             </div>
         </div>
         <div class="form-inline">
-            <div class="form-group">
+            <div class="form-group" style="margin-left: 150px;">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Registrar" class="btn btn-primary" />
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-left: 10px;">
                 <div class="col-md-offset-2 col-md-10">
-                    @Html.ActionLink("Cancelar", "Index", "ISesion", new {@class = "btn btn-danger"})
+                    @Html.ActionLink("Cancelar", "Index", "ISesion", new { @class = "btn btn-danger" })
                 </div>
             </div>
         </div>

@@ -28,7 +28,7 @@
     @Html.RadioButton("buscarPor", "Mes", true) <text>Mes</text>
     @Html.RadioButton("buscarPor", "Anio")<text>Año</text>
     <p>
-        <b>Buscar por:</b> @Html.TextBox("buscar") <input type="submit" value="buscar" />
+        <b>Buscar por:</b> @Html.TextBox("buscar") <input type="submit" value="buscar" class="btn btn-primary" />
     </p>
 }
 
@@ -79,7 +79,7 @@
 </ul>
 
 <table class="table table-bordered table-hover table-responsive table-striped">
-    <tr>
+    <tr class="text-primary active">
         <th>
             @Html.DisplayNameFor(model => model.Anio)
         </th>

@@ -32,7 +32,7 @@ namespace AppFinalRH.Areas.Seguridad.Controllers
             }
             catch
             {
-                TempData["Error"] = "Error al registrarse, intentelo mas tarde";
+                TempData["Msg"] = "Error al registrarse, intentelo mas tarde";
                 return RedirectToAction("Index", "Registro", new{area="Seguridad"});
             }
       
