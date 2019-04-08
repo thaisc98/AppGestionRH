@@ -9,12 +9,11 @@
 <table class="table table-bordered table-hover table-responsive table-striped">
     <tr class="text-primary active">
         <th>
-            @Html.DisplayNameFor(model => model.CodigoCargo)
+            @Html.ActionLink("Código", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "CodigoCargo", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NombreCargo)
+            @Html.ActionLink("Nombre", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "NombreCargo", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
         </th>
-     
     </tr>
 
     @foreach (var item in Model)
@@ -39,10 +38,10 @@
 {
     if (i == ViewBag.Page)
     {
-        <b>@Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })</b>
+        <b>@Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag == null ? "CodigoCargo" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })</b>
     }
     else
     {
-        @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "CodigoCargo" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })
     }
 }

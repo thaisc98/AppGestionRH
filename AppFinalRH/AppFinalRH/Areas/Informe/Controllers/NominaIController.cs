@@ -47,7 +47,8 @@ namespace AppFinalRH.Areas.Informe.Controllers
             }
             else if(Estado == "P")
             {
-               
+                return View(nominaLdn.GetPending());
+
             }
 
             return View(nominaLdn.GetApproved());

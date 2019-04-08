@@ -10,13 +10,13 @@
 <table class="table table-hover table-striped table-responsive table-bordered">
     <tr class="text-primary active">
         <th>
-            @Html.DisplayNameFor(model => model.CodigoDep)
+            @Html.ActionLink("Código", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "CodigoDep", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NombreDep)
+            @Html.ActionLink("Nombre", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "NombreDep", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Empleado1.CodigoEmp)
+            @Html.ActionLink("Encargado", "Index", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "CodigoEmp", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })
         </th>
       
     </tr>
@@ -31,8 +31,8 @@
                 @Html.DisplayFor(modelItem => item.NombreDep)
             </td>
             <td>
-                (@Html.DisplayFor(modelItem => item.Empleado1.Nombre)) 
-                (@Html.DisplayFor(modelItem => item.Empleado1.Apellido))
+                @Html.DisplayFor(modelItem => item.Empleado1.Nombre)
+                @Html.DisplayFor(modelItem => item.Empleado1.Apellido)
                 (@Html.DisplayFor(modelItem => item.Empleado1.CodigoEmp))
             </td>
         </tr>
