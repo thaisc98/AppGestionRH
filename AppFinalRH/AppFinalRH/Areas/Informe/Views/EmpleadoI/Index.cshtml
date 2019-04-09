@@ -7,7 +7,7 @@
 <br/>
 <h3 class="text-center">Empleados</h3>
 
-
+<hr/>
 <script>
     $(document).ready(function () {
 
@@ -141,19 +141,3 @@
 
 </table>
 
-
-@{
-    double TotalPage = @ViewBag.TotalPages;
-}
-
-@for (int i = 1; i <= TotalPage; i++)
-{
-    if (i == ViewBag.Page)
-    {
-        <b>@Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })</b>
-    }
-    else
-    {
-        @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })
-    }
-}

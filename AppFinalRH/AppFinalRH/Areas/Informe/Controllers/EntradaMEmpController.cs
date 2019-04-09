@@ -17,11 +17,11 @@ namespace AppFinalRH.Areas.Informe.Controllers
         {
             if (buscarPor == "Mes")
             {
-                return View(empldn.GetAll().Where(y => y.FechaIngreso.Month.ToString() == buscar || buscar == null));
+                return View(empldn.GetAll().Where(y => y.FechaIngreso.Month.ToString().StartsWith(buscar) || buscar == null));
             }
             else if (buscarPor == "Anio")
             {
-                return View(empldn.GetAll().Where(y => y.FechaIngreso.Year.ToString() == buscar|| buscar == null));
+                return View(empldn.GetAll().Where(y => y.FechaIngreso.Year.ToString().StartsWith(buscar) || buscar == null));
             }
             var x = empldn.GetAll();
             return View(x);

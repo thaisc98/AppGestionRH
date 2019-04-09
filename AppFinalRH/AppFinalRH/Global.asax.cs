@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Globalization;
+using System.Threading;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
@@ -14,6 +16,7 @@ namespace AppFinalRH
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //En caso de tener problemas, comentar la línea de código siguiente
             GlobalFilters.Filters.Add(new AuthorizeAttribute());
+            
         }
     }
 }

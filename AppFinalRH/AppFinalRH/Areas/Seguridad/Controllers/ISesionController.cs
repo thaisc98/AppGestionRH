@@ -28,13 +28,16 @@ namespace AppFinalRH.Areas.Seguridad.Controllers
                     FormsAuthentication.SetAuthCookie(user.Email,false);
                     return RedirectToAction("Index", "Principal", new {area= "Lobby"});
                 }
+                
+                    TempData["Msg"] = "Ha ocurrido un error al iniciar sesión";
+                    return RedirectToAction("Index", "ISesion");
+                
             }
             catch
             {
                 TempData["Msg"] = "Ha ocurrido un error al iniciar sesión";
                 return RedirectToAction("Index", "ISesion");
             }
-            return View();
         }
 
 

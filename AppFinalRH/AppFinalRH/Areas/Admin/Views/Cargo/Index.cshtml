@@ -8,11 +8,12 @@
 <h3 class="text-center">Cargos</h3>
 <hr />
 
-@if (TempData["Error"] != null)
+@if (TempData["Msg"] != null)
 {
-    <p>
-        @TempData["Error"].ToString()
-    </p>
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @TempData["Msg"].ToString()
+    </div>
 }
 
 <table class="table table-bordered table-hover table-responsive table-striped">
@@ -24,7 +25,7 @@
             @Html.DisplayNameFor(model => model.NombreCargo)
         </th>
         <th>
-            @Html.ActionLink("Agregar", "Create", "Cargo",FormMethod.Post, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Agregar", "Create", "Cargo", FormMethod.Post, new { @class = "btn btn-primary" })
         </th>
     </tr>
 

@@ -70,20 +70,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Delete(int id)
-        {
-            try
-            {
-                empleadEmpleadoLDN.Delete(id);
-                return RedirectToAction("Index", "Empleado", new { area = "Admin" });
-            }
-            catch (Exception e)
-            {
-                TempData["Msg"] = "Error: al eliminar el empleado. Inténtelo de nuevo";
-                return RedirectToAction("Index", "Empleado");
-            }
-        }
+      
     }
 
 }

@@ -29,7 +29,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
             ViewBag.Page = page;
 
             x = x.Skip((page - 1) * 10).Take(10);
-            return View(x);
+            return View(saliempleldn.GetAll());
         }
 
         [HttpGet]
@@ -42,12 +42,13 @@ namespace AppFinalRH.Areas.Admin.Controllers
             });
 
 
-
+             /* no se sabe pa que ta
             ViewBag.Id_Empleado = empleldn.GetAll().Select(x => new SelectListItem()
             {
                 Text = x.Nombre + " " + x.Apellido,
                 Value = x.Id.ToString()
-            });
+            });g
+            */
 
             return View();
         }

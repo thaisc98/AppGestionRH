@@ -92,7 +92,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
             }
             catch
             {
-                TempData["Error"] = "Error al eliminar permiso,intentelo de nuevo";
+                TempData["Msg"] = "Error al eliminar permiso,intentelo de nuevo";
                 return RedirectToAction("Index", "Permiso", new { area = "Admin" });
             }
 

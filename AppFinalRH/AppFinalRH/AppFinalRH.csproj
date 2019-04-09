@@ -216,7 +216,6 @@
     <Content Include="Areas\Admin\Views\Licencia\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Licencia\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Licencia\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\SalidaEmpleado\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SalidaEmpleado\Edit.cshtml" />
     <Content Include="Areas\Informe\Views\web.config" />
     <Content Include="Areas\Informe\Views\_ViewStart.cshtml" />
@@ -248,6 +247,7 @@
     <Content Include="Areas\Contador\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Contador\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Contador\Views\ContadorN\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SalidaEmpleado\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

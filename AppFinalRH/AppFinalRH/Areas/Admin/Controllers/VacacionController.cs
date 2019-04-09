@@ -34,7 +34,12 @@ namespace AppFinalRH.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.EmpleadoId = new SelectList(objEmpleado.GetAll().ToList(), "Id", "Nombre");
+            // ViewBag.EmpleadoId = new SelectList(objEmpleado.GetAll().ToList(), "Id", "Nombre");
+            ViewBag.EmpleadoId = objEmpleado.GetAll().Where(y => y.Estatus == "A").Select(x => new SelectListItem()
+            {
+                Text = x.Nombre + " " + x.Apellido + " (" + x.CodigoEmp + ") ",
+                Value = x.Id.ToString()
+            });
             return View();
         }
 
@@ -92,7 +97,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
                 objsBs.Delete(id);
                 return RedirectToAction("Index", "Vacacion", new { area = "Admin" });
             }
-            catch (Exception e)
+            catch
             {
                 TempData["Msg"] = "Error al cancelar vacación. Inténtelo de nuevo.";
                 return RedirectToAction("Index", "Vacacion", new { area = "Admin" });

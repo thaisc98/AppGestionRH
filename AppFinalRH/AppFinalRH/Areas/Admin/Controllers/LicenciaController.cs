@@ -91,7 +91,7 @@ namespace AppFinalRH.Areas.Admin.Controllers
             }
             catch
             {
-                TempData["Error"] = "Error al eliminar licencia,intentelo de nuevo";
+                TempData["Msg"] = "Error al eliminar licencia,intentelo de nuevo";
                 return RedirectToAction("Index", "licencia", new { area = "Admin" });
             }
 

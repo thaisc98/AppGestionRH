@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <br />
 <h3 class="text-center">Inicio de sesión</h3>
 
@@ -32,7 +33,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Contra, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Contra, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Contra, new { htmlAttributes = new { @class = "form-control" ,Type="password"} })
                 @Html.ValidationMessageFor(model => model.Contra, "", new { @class = "text-danger" })
             </div>
         </div>

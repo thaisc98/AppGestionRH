@@ -2,6 +2,7 @@
 using ODN;
 using System;
 using System.Linq;
+using System.Web.DynamicData;
 using System.Web.Mvc;
 
 namespace AppFinalRH.Areas.Admin.Controllers
@@ -10,10 +11,12 @@ namespace AppFinalRH.Areas.Admin.Controllers
     public class CargoController : Controller
     {
         private CargoLDN cargoldn;
+        private EmpleadoLDN empldn;
 
         public CargoController()
         {
             cargoldn = new CargoLDN();
+            empldn = new EmpleadoLDN();
         }
 
 
@@ -72,12 +75,20 @@ namespace AppFinalRH.Areas.Admin.Controllers
 
             try
             {
-               cargoldn.Delete(id);
-               return RedirectToAction("Index", "Cargo");
+                int count = empldn.GetAll().Where(x => x.CargoId == id).Count();
+
+                if (count != 0)
+                {
+                    TempData["Msg"] = "Error al eliminar cargo, intentelo de nuevo ";
+
+                }
+
+                cargoldn.Delete(id);
+                return RedirectToAction("Index", "Cargo");
             }
             catch
             {
-                TempData["Error"] = "Error al eliminar cargo,intentelo de nuevo";
+                TempData["Msg"] = "Error al eliminar cargo, intentelo de nuevo ";
                 return RedirectToAction("Index", "Cargo", new {area = "Admin"});
             }
             

@@ -7,14 +7,19 @@ namespace ODN
     {
       
         public Nullable<int> EmpleadoId { get; set; }
+        [Required]
         public string Tipo { get; set; }
         [Required]
         public string Motivo { get; set; }
+
+        [DataType(DataType.Date)]
         public System.DateTime FechaSalida { get; set; }
+
+        public virtual Empleado Empleado { get; set; }
     }
 
 
-    [MetadataType(typeof(SalidaEmpleado))]
+    [MetadataType(typeof(SalidaEValidacion))]
     public partial class SalidaEmpleado
     {
 

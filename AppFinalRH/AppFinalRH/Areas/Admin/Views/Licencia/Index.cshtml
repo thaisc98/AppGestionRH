@@ -6,6 +6,13 @@
 <br />
 <h3 class="text-center">Licencias</h3>
 <hr />
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @TempData["Msg"].ToString()
+    </div>
+}
 <table class="table table-bordered table-hover table-responsive table-striped">
     <tr class="text-primary active">
         <th>
@@ -24,7 +31,7 @@
             @Html.DisplayName("Empleado")
         </th>
         <th>
-            @Html.ActionLink("Agregar", "Create", "Licencia", new{@class ="btn btn-primary col-md-6"})
+            @Html.ActionLink("Agregar", "Create", "Licencia", new { @class = "btn btn-primary col-md-6" })
         </th>
     </tr>
 
@@ -47,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Empleado.CodigoEmp)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new{@class ="btn btn-info"}) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-info" }) |
                 @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
             </td>
         </tr>

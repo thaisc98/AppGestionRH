@@ -84,12 +84,18 @@ namespace AppFinalRH.Areas.Admin.Controllers
         {
             try
             {
+                int count = empleldn.GetAll().Where(x => x.DepartamentoId == id).Count();
+
+                if (count != 0)
+                {
+                    TempData["Msg"] = "Error al eliminar cargo, intentelo de nuevo ";
+                }
                 depaldn.Delete(id);
                 return RedirectToAction("Index", "Departamento", new {area = "Admin"});
             }
             catch
             {
-                TempData["Error"] = "Error al elminar departamento";
+                TempData["Msg"] = "Error al eliminar cargo, intentelo de nuevo ";
                 return RedirectToAction("Index", "Departamento", new {area = "Admin"});
             }
 

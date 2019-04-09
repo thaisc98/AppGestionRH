@@ -44,25 +44,8 @@
                 (@Html.DisplayFor(modelItem => item.Empleado.CodigoEmp))
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id, area = "Admin" }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id, area = "Admin" }, new { @class = "btn btn-info" }) 
             </td>
         </tr>
     }
 </table>
-@*
-    @{
-        double TotalPage = @ViewBag.TotalPages;
-    }
-
-    @for (int i = 1; i <= TotalPage; i++)
-    {
-        if (i == ViewBag.Page)
-        {
-            <b>@Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })</b>
-        }
-        else
-        {
-            @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "Nombre" : ViewBag.SortBy), Page = i }, new { @class = "btn btn-primary" })
-        }
-    }
-*@

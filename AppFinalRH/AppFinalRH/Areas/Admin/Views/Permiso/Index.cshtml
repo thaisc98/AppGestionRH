@@ -7,6 +7,13 @@
 <br />
 <h3 class="text-center">Permisos</h3>
 <hr />
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @TempData["Msg"].ToString()
+    </div>
+}
 <table class="table table-bordered table-hover table-striped table-responsive">
     <tr class="active text-primary">
         <th>
@@ -22,7 +29,7 @@
             @Html.DisplayName("Empleado")
         </th>
         <th>
-            @Html.ActionLink("Agregar", "Create", "Permiso", new {@class = "btn btn-primary" })
+            @Html.ActionLink("Agregar", "Create", "Permiso", new { @class = "btn btn-primary" })
         </th>
     </tr>
 
@@ -41,10 +48,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Empleado.Nombre)
                 @Html.DisplayFor(modelItem => item.Empleado.Apellido)
-               (@Html.DisplayFor(modelItem => item.Empleado.CodigoEmp))
+                (@Html.DisplayFor(modelItem => item.Empleado.CodigoEmp))
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id}, new{@class ="btn btn-info"}) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-info" }) |
                 @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
             </td>
         </tr>
